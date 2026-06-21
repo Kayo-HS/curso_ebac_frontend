@@ -49,11 +49,9 @@ Este projeto foi desenvolvido para praticar:
 
 ## 📸 Preview
 
+![Preview do projeto Quantum & Code](assets/imagens/image.png)
 
-```html
-<img width="1460" height="1137" alt="image" src="https://github.com/user-attachments/assets/c0cc9454-5abd-4319-81a1-a27404c63169" />
 
-```
 
 ## 🔮 Próximas melhorias
 
