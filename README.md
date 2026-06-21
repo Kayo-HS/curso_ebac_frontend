@@ -49,10 +49,10 @@ Este projeto foi desenvolvido para praticar:
 
 ## 📸 Preview
 
-Adicione aqui uma captura de tela do projeto.
 
 ```html
-<img src="./preview.png" alt="Preview do projeto">
+<img width="1460" height="1137" alt="image" src="https://github.com/user-attachments/assets/c0cc9454-5abd-4319-81a1-a27404c63169" />
+
 ```
 
 ## 🔮 Próximas melhorias
