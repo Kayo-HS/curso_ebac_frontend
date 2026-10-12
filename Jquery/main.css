@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+:root{
+    --primary: #00a86b;
+    --text: #26384d;
+}
 
 body{
     background: linear-gradient(135deg, #7186a3, #536b8a);
@@ -41,6 +45,37 @@ form{
     justify-content: space-between;
     margin-bottom: 30px;
     gap: 10px;
+}
+#form-afazeres{
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 32px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(24, 39, 57, 0.12);
+}
+
+#nome-tarefa{
+    flex: 1;
+    min-width: 0;
+    padding: 15px 18px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: var(--text);
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+#nome-tarefa::placeholder{
+    color: #94a3b8;
+}
+#nome-tarefa:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 168, 107, 0.16);
 }
 
 form input {
