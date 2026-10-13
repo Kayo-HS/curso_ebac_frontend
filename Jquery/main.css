@@ -154,3 +154,75 @@ table tbody tr {
 table tbody tr:hover { 
     background-color: #f1f5f9; 
 }
+
+tbody tr.concluida td:last-child {
+    color: #94a3b8;
+    text-decoration: line-through;
+    transition: color 0.2s ease;
+}
+
+tbody tr.concluida {
+    background-color: #f1f5f9;
+}
+
+tbody input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 23px;
+    height: 23px;
+    border: 2px solid #94a3b8;
+    border-radius: 7px;
+    background-color: #fff;
+
+    cursor: pointer;
+    vertical-align: middle;
+
+    display: inline-grid;
+    place-content: center;
+
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.15s ease,
+                box-shadow 0.2s ease;
+}
+
+
+tbody input[type="checkbox"]:checked {
+    background-color: #00a86b;
+    border-color: #00a86b;
+}
+
+
+tbody input[type="checkbox"]::before {
+    content: "";
+    width: 6px;
+    height: 11px;
+
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.15s ease;
+}
+
+tbody input[type="checkbox"]:checked::before {
+    transform: rotate(45deg) scale(1);
+}
+
+
+tbody input[type="checkbox"]:hover {
+    border-color: #00a86b;
+    box-shadow: 0 0 0 4px rgba(0, 168, 107, 0.12);
+}
+
+
+tbody input[type="checkbox"]:active {
+    transform: scale(0.9);
+}
+
+
+tbody input[type="checkbox"]:focus-visible {
+    outline: 3px solid rgba(0, 168, 107, 0.4);
+    outline-offset: 3px;
+}

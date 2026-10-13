@@ -1,9 +1,12 @@
 const form = document.getElementById("form-afazeres");
-const caixaSelecao = document.getElementById("caixa-selecao");
+const inputNomeTarefa = document.getElementById("nome-tarefa");
+const corpoTabela = document.querySelector("tbody");
+const botaoCancelar = document.getElementById("botao-cancelar")
+
 
 const listaAfazeres = [];
 
-let linhas = "";
+
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
@@ -15,29 +18,60 @@ form.addEventListener("submit", function(e){
 });
 
 function adcionaLinha(){
-    const inputNomeTarefa = document.getElementById("nome-tarefa");
+    const nome = inputNomeTarefa.value.trim();
 
-    if(listaAfazeres.includes(inputNomeTarefa.value)){
-        alert(`A Tarefa: ${inputNomeTarefa.value} já foi adicionada`)
+    if(nome == ""){
+        return;
     }
-    else{
-        listaAfazeres.push(inputNomeTarefa.value);
-
-        
-
-        let linha = '<tr>';
-        linha += '<td><input type="checkbox" id="caixa-selecao"></td>'
-        linha += `<td>${inputNomeTarefa.value}</td>`;
-        linha += '</tr>'
-
-        linhas += linha;
-
-        
+    const tarefaExiste = listaAfazeres.some(
+        tarefa => tarefa.nome.toLowerCase() == nome.toLowerCase()
+    );
+    if (tarefaExiste){
+        alert(`A tarefa "${nome}" já foi adicionada. `);
+        return;
     }
+
+    listaAfazeres.push({
+        nome: nome,
+        concluida: false
+    });
+    
     inputNomeTarefa.value = " ";
+    inputNomeTarefa.focus();
 }
 
 function atualizaTabela(){
-    const corpoTabela = document.querySelector("tbody");
-    corpoTabela.innerHTML = linhas;
+    
+    corpoTabela.innerHTML = "";
+    listaAfazeres.forEach(function(tarefa) {
+        const linha = document.createElement("tr");
+        const celulaCheckbox = document.createElement("td");
+        const celulaNome = document.createElement("td");
+        const checkbox = document.createElement("input");
+
+        checkbox.type = "checkbox";
+        checkbox.checked = tarefa.concluida;
+
+        checkbox.addEventListener("change", function() {
+            tarefa.concluida = checkbox.checked;
+            atualizaTabela();
+        });
+
+        celulaCheckbox.appendChild(checkbox);
+        celulaNome.textContent = tarefa.nome;
+
+        if (tarefa.concluida) {
+            linha.classList.add("concluida");
+        }
+
+        linha.appendChild(celulaCheckbox);
+        linha.appendChild(celulaNome);
+        corpoTabela.appendChild(linha);
+    });
 }
+
+botaoCancelar.addEventListener("click", function() {
+    inputNomeTarefa.value = "";
+    inputNomeTarefa.focus();
+});
+
