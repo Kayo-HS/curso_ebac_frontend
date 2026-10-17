@@ -5,3 +5,7 @@ icones/
 *.jpeg
 
 *.jpg
+
+jquery.mask.min.js
+jquery.validate.min.js
+messages_pt_BR.min.js
