@@ -10,9 +10,15 @@ html {
 }
 
 .container {
-    max-width: 1024px;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
+}
+
+body{
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
 }
 
 header, footer {
@@ -25,8 +31,20 @@ header{
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 10;
+    background-color: #192a56;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
 }
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
 
 header > .container,
 footer > .container{
@@ -86,16 +104,37 @@ section h2{
 }
 
 .lista-veiculos{
+    display: flex;
     flex-wrap: wrap;
+    gap: 24px;
 }
 
 .lista-veiculos li{
     list-style: none;
-    max-width: 30%;
-    margin-bottom: 24px;
+    flex: 1 1 280px;
+    max-width: calc(33.33% - 16px);
+    margin-bottom: 0px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
 }
+.lista-veiculos li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+
 .lista-veiculos li img{
+    display: block;
+    width: 100%;
     max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    
 }
 
 .lista-veiculos li h3{
@@ -110,14 +149,31 @@ button{
     cursor: pointer;
     display: block;
     width: 100%;
-    padding: 8px 0;
+    padding: 12px 16px;
     border: none;
+    border-radius: 8px;
     background-color: #119750;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
     font-style: italic;
-    border-radius: 6px;
+    
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0d7d41;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
 }
 
 .price{
@@ -131,28 +187,45 @@ button{
 }
 
 .form-campo{
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .form-campo label{
+    margin-bottom: 6px;
     font-weight: bold;
     display: block;
 }
 
 .form-campo input,
 .form-campo textarea{
-    width: 100%;
     display: block;
-    padding: 8px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #1e293b;
+    font: inherit;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+
+}
+
+.form-campo input:focus,
+.form-campo textarea:focus {
+    outline: none;
+    border-color: #575fcf;
+    box-shadow: 0 0 0 3px rgba(87, 95, 207, 0.15);
 }
 
 .form-campo textarea{
-    resize: none;
+    resize: vertical;
     height: 120px;
 }
 
 form {
-    max-width: 360px;
+    width: 100%;
+    max-width: 480px;
 }
 
 form button {
