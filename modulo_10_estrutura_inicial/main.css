@@ -239,5 +239,6 @@ footer li{
 
 footer li img{
     height: 32px;
+    max-width: 120px;
 }
 
